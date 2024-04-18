@@ -20,7 +20,35 @@
         height: 60px;
         margin-left: 10px;
     }
-
+    .user-container{
+        position: relative;
+    }
+    .user-logo{
+        width: 50px;
+        height: 50px;
+        margin-right: 25px;
+        border-radius: 50%;
+        position: relative;
+    }
+    .navbar-user-modal{
+        position: absolute;
+        background-color: #dfdfdf;
+        color: #000;
+        padding: 5px;
+        width: 100px;
+        top: 50px;
+        right:  5px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(80, 80, 80, 0.856);
+        .modal-arrow{
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            color: #dfdfdf;
+            font-size: x-large;
+        }
+    }
     .navbar-logo-text{
         font-size: x-large;
         font-weight: 600;
@@ -44,5 +72,6 @@
         border-radius: 5px;
         font-weight: 600;
         cursor: pointer;
+        text-decoration: none;
     }
 }

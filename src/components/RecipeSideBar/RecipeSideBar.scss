@@ -1,0 +1,69 @@
+.RecipeSideBar {
+    margin-top: 75px;
+    button {
+      background-color: #ee5e40;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+  
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-top: 60px;
+    }
+    
+  
+    select {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .recipe-sidebar-container{
+      background-color: #00000060;
+      position: fixed;
+      top: 75px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      .sidebar-content{
+        width: 300px;
+        height: 100vh;
+        background-color: #fff;
+        position: relative;
+        .sidebar-cancel-btn{
+          position: absolute;
+          top: 0;
+          right: 2px;
+          z-index: 99;
+        }
+        .search-container{
+            position: relative;
+            .search-text{
+                position: absolute;
+                top: 65px;
+                left: 5px;
+                color: #ee5e40;
+                background-color: #fff;
+                padding: 0 5px;
+                border-radius: 10px;
+            }
+            input[type="text"]:focus + .search-text{
+              top: 55px;
+              transition: 0.2s ease-in-out;
+            }
+        }
+      }
+    }
+  }
+  

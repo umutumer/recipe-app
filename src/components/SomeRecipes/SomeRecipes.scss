@@ -32,12 +32,12 @@
     justify-content: center;
     width: 90vw;
     .recipe{
-        width: 200px;
-        height: 300px;
+        width: 300px;
+        height: 400px;
         margin: 5px 10px;
         .recipe-img{
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 5px;
         }
         .recipe-title{
@@ -47,13 +47,12 @@
         .recipe-content{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-top: 5px;
             .recipe-text{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: large;
-                font-weight: 400;
             }
         }
     }

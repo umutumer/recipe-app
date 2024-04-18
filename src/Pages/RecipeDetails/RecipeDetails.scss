@@ -1,0 +1,26 @@
+.recipe-details{
+    display: flex;
+    justify-content: center;
+    .recipe-details-container{
+        display: flex;
+        margin-top: 200px;
+        width: 1200px;
+        .recipe-details-img{
+            width: 600px;
+            height: 600px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+        .recipe-details-content{
+            width: 600px;
+            .recipe-details-title{
+                font-size: x-large;
+                font-weight: 600;
+                margin: 20px 0;
+            }
+            .recipe-details-line{
+                margin: 20px 0;
+            }
+        }
+    }
+}

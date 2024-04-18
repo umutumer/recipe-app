@@ -1,0 +1,32 @@
+.recipes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90vw;
+    .recipe{
+        width: 250px;
+        height: 300px;
+        margin: 5px 10px;
+        border-radius: 5px;
+        .recipe-img{
+            width: 250px;
+            height: 250px;
+            border-radius: 5px;
+        }
+        .recipe-title{
+            font-size: large;
+            font-weight: 600;
+        }
+        .recipe-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px;
+            .recipe-text{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

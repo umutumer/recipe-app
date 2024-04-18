@@ -1,116 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './SomeRecipes.scss'
-import { MdOutlineBookmarkAdd, MdOutlineBookmark } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
+import { Category, RecipeType } from '../../Types/Types';
+import { Link } from 'react-router-dom';
 const SomeRecipes = () => {
+    const [recipes, setRecipes] = useState<RecipeType[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
+    const getRecipes = async () => {
+        try {
+            const response = await fetch("http://localhost:8080/api/recipes")
+            const data: RecipeType[] = await response.json();
+            setRecipes(data)
+        } catch (error) {
+            console.error("Tarifler gelirken bir hata oluştu: ", error);
+
+        }
+    }
+    const getCategories = async () => {
+        try {
+            const response = await fetch("http://localhost:8080/api/categories")
+            const data: Category[] = await response.json();
+            setCategories(data)
+        } catch (error) {
+            console.error("Tarifler gelirken bir hata oluştu: ", error);
+
+        }
+    }
+    useEffect(() => {
+        getRecipes();
+        getCategories();
+    }, [])
     return (
         <div className='some-recipes'>
             <div className='filter-recipe-container'>
-                <button className='filter-recipe-btn'>Kahvaltı</button>
-                <button className='filter-recipe-btn'>Akşam Yemeği</button>
-                <button className='filter-recipe-btn'>Tatlı</button>
-                <button className='filter-recipe-btn'>Atıştırmalık</button>
+                {categories.map((category) => (
+                    <button className='filter-recipe-btn' key={category.id}>{category.name}</button>
+                ))}
             </div>
             <div className='recipes'>
-                <div className='recipe'>
-                    <img src="https://static.wixstatic.com/media/2da88b_65517974b8e445b4935e6e616ba54df0~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Sarma</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
+                {recipes.map((recipe, index) => (index < 9 &&
+                    <div className='recipe' key={recipe.id}>
+                        <Link to={`/yemek-tarifleri/${recipe.id}`}>
+                            <img src={recipe.base64image} alt={recipe.name} className='recipe-img' />
+                        </Link>
+                        <div>
+                            <div className='recipe-content'>
+                                <p className='recipe-title'>{recipe.name}</p>
+                                <p className='recipe-text'>{recipe.preparation_time}dk<FaRegClock style={{ marginLeft: "5px" }} /> </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://www.yufbi.com.tr/image/cache/catalog/urunler/icli-kofte-v2-500x500.jpg" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>İçli Köfte</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://i.pinimg.com/564x/fd/bf/32/fdbf32e1dd41428e3b5e99908578fe9f.jpg" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Mantı</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://www.karaca.com/blog/wp-content/uploads/2023/10/domates-soslu-makarna-2-500x500.webp" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Makarna</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://www.karaca.com/blog/wp-content/uploads/2024/02/patlicanyemegi1-500x500.webp" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Patlıcan Yemeği</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://www.yemekolay.com/wp-content/uploads/2023/08/menemen-13-500x500.webp" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Menemen</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://www.karaca.com/blog/wp-content/uploads/2024/02/mantarsote2-500x500.webp" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Mantar Sote</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://m.media-amazon.com/images/I/41qjo2tMWbL._AC_SY780_.jpg" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Ankara Tavası</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
-                <div className='recipe'>
-                    <img src="https://i.nefisyemektarifleri.com/2018/05/25/firinda-tavuklu-patates-600x400.jpg" alt="" className='recipe-img' />
-                    <div>
-                        <p className='recipe-title'>Fırında Tavuklu Patates</p>
-                        <div className='recipe-content'>
-                            <p className='recipe-text'><FaRegClock style={{ marginRight: "5px" }} /> 40 dakika</p>
-                            <p className='recipe-text'><MdOutlineBookmarkAdd /></p>
-                            {/* <MdOutlineBookmark /> */}
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )
