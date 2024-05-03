@@ -45,10 +45,13 @@ const MyRecipes = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 }
-            })
+            })        
         } catch (error) {
             console.error("tarif silinirken hata oluştu: ", error);
 
+        }finally{
+            setDeleteModal(false)
+            getRecipes();
         }
     }
     const addRecipe = async () =>{
@@ -186,7 +189,7 @@ const MyRecipes = () => {
                                 ))}</td>
                                 <td>{recipe.preparation_time}</td>
                                 <td>{recipe.category.name}</td>
-                                <td><button onClick={() => handleDeleteModal(recipe.id)} ><FaTrash /></button></td>
+                                <td><button onClick={() => handleDeleteModal(recipe.id)} className='text-[#ee5e40]' ><FaTrash /></button></td>
                             </tr>
                         ))}
                     </tbody>

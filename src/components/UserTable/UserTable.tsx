@@ -60,6 +60,7 @@ const UserTable = () => {
                     </div>
                 </div>
             )}
+             <h3 className='text-center my-10 font-bold text-2xl text-[#ee5e40]'>Kullanıcılar</h3>
             <table className="table">
                 <thead>
                     <tr className='text-[#ee5e40]'>

@@ -10,6 +10,7 @@ import PersonalInformation from './Pages/PersonalInformation/PersonalInformation
 import Admin from './Pages/Admin/Admin';
 import AdminUsers from './Pages/AdminUsers/AdminUsers';
 import MyRecipes from './Pages/MyRecipes/MyRecipes';
+import AdminComments from './Pages/AdminComments/AdminComments';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path='/hesabim' element={<PersonalInformation />}  />
       <Route path='/admin' element={<Admin />}  />
       <Route path='/admin/kullanicilar' element={<AdminUsers />}  />
+      <Route path='/admin/yorumlar' element={<AdminComments />}  />
     </Routes>
     </BrowserRouter>
   );

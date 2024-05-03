@@ -9,7 +9,6 @@ const RecipeDetails = () => {
     const [recipe, setRecipe] = useState<RecipeType>();
     console.log(recipe?.category.name);
     const [comment, setComment] = useState<string>();
-    const [base64image, setBase64Image] = useState<string>()
 
 
 

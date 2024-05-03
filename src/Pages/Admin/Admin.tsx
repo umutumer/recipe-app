@@ -4,9 +4,9 @@ import './Admin.scss'
 import AdminSideBar from '../../components/AdminSidebar/AdminSideBar';
 import RecipeTable from '../../components/RecipeTable/RecipeTable';
 const Admin = () => {
-    const [userId, setUserId] = useState<number>();
+  const [userId, setUserId] = useState<number>();
   const [loggedInUser, setLoggedInUser] = useState<UserType>();
-  
+
 
   const admin = loggedInUser?.role.name === "admin";
   const getUserById = async () => {
@@ -41,7 +41,7 @@ const Admin = () => {
         </div>
       </div>
     )
-   }else {
+  } else {
     return (
       <div className='authority'>
         <p className='authority-text'>404 Not Found Error !</p>
