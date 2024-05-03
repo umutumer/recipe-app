@@ -34,3 +34,19 @@ export interface Category{
     id:number,
     name:string
 }
+export interface RecipeSideBarProps{
+    setSearchTerm: React.Dispatch<React.SetStateAction<string>>
+    setSelectedCategory:React.Dispatch<React.SetStateAction<string>>
+    setSelectedMaterials:React.Dispatch<React.SetStateAction<string[]>>
+    selectedMaterials:string[]
+    selectedCategory:string
+}
+export interface Comments{
+    id:number,
+    recipeeId:number,
+    userId:number,
+    userName:string,
+    comment:string,
+    base64image:string,
+    time:string
+}

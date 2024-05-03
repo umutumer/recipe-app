@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const SomeRecipes = () => {
     const [recipes, setRecipes] = useState<RecipeType[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<string>("All Recipes");
     const getRecipes = async () => {
         try {
             const response = await fetch("http://localhost:8080/api/recipes")
@@ -26,6 +27,7 @@ const SomeRecipes = () => {
 
         }
     }
+    const filteredRecipes = selectedCategory !== "All Recipes" ? recipes.filter((recipe) => recipe.category.name === selectedCategory) : recipes;
     useEffect(() => {
         getRecipes();
         getCategories();
@@ -33,12 +35,15 @@ const SomeRecipes = () => {
     return (
         <div className='some-recipes'>
             <div className='filter-recipe-container'>
+                {selectedCategory !== "All Recipes" && (
+                    <button onClick={() => setSelectedCategory("All Recipes")} className='filter-recipe-btn' >Tüm Tarifler</button>
+                )}
                 {categories.map((category) => (
-                    <button className='filter-recipe-btn' key={category.id}>{category.name}</button>
+                    <button className='filter-recipe-btn' key={category.id} onClick={() => setSelectedCategory(category.name)}>{category.name}</button>
                 ))}
             </div>
             <div className='recipes'>
-                {recipes.map((recipe, index) => (index < 9 &&
+                {filteredRecipes.map((recipe, index) => (index < 9 &&
                     <div className='recipe' key={recipe.id}>
                         <Link to={`/yemek-tarifleri/${recipe.id}`}>
                             <img src={recipe.base64image} alt={recipe.name} className='recipe-img' />

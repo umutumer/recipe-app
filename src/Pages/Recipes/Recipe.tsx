@@ -6,8 +6,8 @@ import RecipeList from '../../components/RecipeList/RecipeList';
 
 const Recipe = () => {
   const [searchTerm,setSearchTerm] = useState<string>("");
-  const [selectedCategory,setSelectedCategory] = useState<number>();
-  const [selectedMaterials,setSelectedMaterials] = useState<object>({});
+  const [selectedCategory,setSelectedCategory] = useState<string>("All Recipes");
+  const [selectedMaterials,setSelectedMaterials] = useState<string[]>([]);
   const[recipes,setRecipes] = useState<RecipeType[]>();
   const [filteredRecipes,setFilteredRecipes] = useState<RecipeType[]>();
   const getRecipes = async () =>{
@@ -35,9 +35,9 @@ const Recipe = () => {
         );
       }
       
-      if (selectedCategory) {
+      if (selectedCategory !== "All Recipes") {
         filtered = filtered.filter(recipe =>
-          recipe.category.id === selectedCategory
+          recipe.category.name === selectedCategory
         );
       }
       
@@ -60,7 +60,7 @@ const Recipe = () => {
     <div>
       <Navbar />
       <div>
-        <RecipeSideBar />
+        <RecipeSideBar setSelectedCategory={setSelectedCategory} setSelectedMaterials={setSelectedMaterials} setSearchTerm={setSearchTerm} selectedMaterials={selectedMaterials} selectedCategory={selectedCategory}/>
         <RecipeList filteredRecipes={filteredRecipes} />
       </div>
     </div>

@@ -3,6 +3,7 @@
     justify-content: center;
     .recipe-details-container{
         display: flex;
+        flex-direction: column;
         margin-top: 200px;
         width: 1200px;
         .recipe-details-img{

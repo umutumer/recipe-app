@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { Category, RecipeType, UserType } from '../../Types/Types';
+import { Category, RecipeType} from '../../Types/Types';
 import { FaTrash } from 'react-icons/fa';
 
 const MyRecipes = () => {
@@ -162,7 +162,7 @@ const MyRecipes = () => {
                     </div>
                 )}
                 <h3 className='text-center py-10 font-bold text-2xl text-[#ee5e40]'>Tarifler</h3>
-                <button onClick={() => setNewRecipeModal(true)}>Tarif Ekle</button>
+                <button onClick={() => setNewRecipeModal(true)} className='absolute right-2 bg-[#ee5e40] text-white py-1 px-2 rounded'>Tarif Ekle</button>
                 <table className="table mt-16">
                     <thead>
                         <tr style={{ color: "#ee5e40" }}>

@@ -10,17 +10,14 @@
       cursor: pointer;
     }
   
-    input[type="text"] {
+    .sidebar-input {
       width: 90%;
       padding: 10px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
-      margin-top: 60px;
     }
-    
-  
     select {
       width: 90%;
       padding: 10px;
