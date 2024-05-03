@@ -23,6 +23,8 @@ const RecipeSideBar: React.FC<RecipeSideBarProps> = ({ setSelectedCategory, setS
       setSelectedMaterials([...selectedMaterials, materialInput]);
       setMaterialInput('');
     }
+    console.log(selectedMaterials);
+    
   };
   const handleDeleteMaterial = (materil: string) => {
     setSelectedMaterials(selectedMaterials.filter((material: string) => material !== materil))
@@ -50,9 +52,9 @@ const RecipeSideBar: React.FC<RecipeSideBarProps> = ({ setSelectedCategory, setS
                 <option value={"All Recipes"} className='filter-recipe-btn' >Tüm Tarifler</option>
               )}
             </select>
-            <div className='flex items-center relative'>
-              <input type="text" placeholder='içindekiler' onChange={(e) => setMaterialInput(e.target.value)}  className='sidebar-input' />
-              <button onClick={handleAddData} className='w-[80px] h-8 bg-[#ee5e40] text-white rounded absolute bottom-2 right-7 flex items-center justify-center'>Ekle</button>
+            <div className='flex -mt-5 items-center ml-[5px] h-20 w-full'>
+              <input type="text" placeholder='içindekiler' onChange={(e) => setMaterialInput(e.target.value)}  className='w-[185px] border pl-1 border-black rounded h-[40px]' />
+              <button onClick={handleAddData} className='w-[80px] bg-[#ee5e40] text-white rounded h-[40px] flex justify-center items-center'>Ekle</button>
             </div>
             <div className='flex flex-wrap'>
               {selectedMaterials.map((material: string, index: number) => (

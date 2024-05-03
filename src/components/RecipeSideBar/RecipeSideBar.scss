@@ -12,19 +12,23 @@
   
     .sidebar-input {
       width: 90%;
-      padding: 10px;
+      height: 40px;
       margin-bottom: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #000;
       border-radius: 5px;
       box-sizing: border-box;
+      margin-left: 5px;
+      padding-left: 5px;
     }
     select {
       width: 90%;
-      padding: 10px;
+      height: 40px;
+      padding-left: 2px;
       margin-bottom: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #000;
       border-radius: 5px;
       box-sizing: border-box;
+      margin-left: 5px;
     }
     .recipe-sidebar-container{
       background-color: #00000060;
@@ -49,7 +53,7 @@
             .search-text{
                 position: absolute;
                 top: 65px;
-                left: 5px;
+                left: 8px;
                 color: #ee5e40;
                 background-color: #fff;
                 padding: 0 5px;

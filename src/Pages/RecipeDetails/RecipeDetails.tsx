@@ -4,6 +4,7 @@ import { Comments, RecipeType, UserType } from "../../Types/Types";
 import { FaRegClock, FaStar } from "react-icons/fa";
 import './RecipeDetails.scss'
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const RecipeDetails = () => {
     const [recipe, setRecipe] = useState<RecipeType>();
@@ -144,7 +145,11 @@ const RecipeDetails = () => {
                             <h4 className="text-center font-semibold text-2xl my-2">Yorum Yap</h4>
                             <textarea className="w-full h-20 my-2 p-2 border border-black rounded" placeholder="Recipe hakkındaki düşünceleriniz..." onChange={(e) => setComment(e.target.value)} />
                             <input type="file" onChange={(e) => handleFileChange(e)} className='file-input file-input-ghost border py-1 px-2 rounded border-black my-2 w-full h-10' />
-                            <input type="submit" id="comment-btn" className="w-full bg-[#ee5e40] px-2 py-1 rounded text-white" value={"Yorum Yap"} />
+                            {loggedInUser ?(
+                                <input type="submit" id="comment-btn" className="w-full bg-[#ee5e40] px-2 py-1 rounded text-white" value={"Yorum Yap"} />
+                            ):(
+                                <Link className="w-full bg-[#ee5e40] px-2 py-1 rounded text-white text-center" to={'/giris-yap'}>Yorum Yap</Link>
+                            )}
 
                         </div>
                     </form>

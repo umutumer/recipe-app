@@ -13,7 +13,7 @@ const RecipeList: React.FC<RecipeListProps> = ({ filteredRecipes }) => {
                     </Link>
                     <div className='recipe-content'>
                         <p className='recipe-title'>{recipe.name}</p>
-                        <p>{recipe.preparation_time} dk <FaClock /></p>
+                        <p className='recipe-text'>{recipe.preparation_time} dk <FaClock className='ml-1' /></p>
                     </div>
                 </div>
             ))}
